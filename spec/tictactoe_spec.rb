@@ -5,12 +5,15 @@ describe 'grid' do
     it 'is an array' do
         expect(new_game.grid.class).to eq(Array)
     end
-    it 'is an array of length 9' do
-        expect(new_game.grid.length).to eq(9)
+    it 'is an array containing 3 rows' do
+        expect(new_game.grid.length).to eq(3)
+    end
+    it 'is an array containing 3 columns' do
+        expect(new_game.grid[0].length).to eq(3)
     end
     it 'has a 5 in 5 spot and 7 in 7 spot' do
-        expect(new_game.grid[4]).to eq 5
-        expect(new_game.grid[6]).to eq 7
+        expect(new_game.grid[1][1]).to eq 5
+        expect(new_game.grid[2][0]).to eq 7
     end
 end
 
