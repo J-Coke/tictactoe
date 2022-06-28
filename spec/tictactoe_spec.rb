@@ -1,5 +1,5 @@
 require_relative '../tictactoe'
-
+#Tests for Tic tac toe
 describe 'grid' do
     new_game = TicTacToe.new
     it 'is an array' do
