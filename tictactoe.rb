@@ -17,6 +17,7 @@ class TicTacToe
     end
 
     def input(move)
+        raise "InvalidInput" if move.match(/^[1-9]/)
         puts move
         @grid.each do | row |
             row.replace(
@@ -27,5 +28,3 @@ class TicTacToe
         end
     end
 end
-new_game = TicTacToe.new
-new_game.input(5)
