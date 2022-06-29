@@ -12,14 +12,16 @@ describe 'grid with moves played' do
     end
 end
 
-describe 'validity checker' do
+describe 'input validator' do
     new_game = TicTacToe.new
-    it 'displays invalid input message when input is not a number between 1-9' do
-        expect(new_game.input_with_validity_checker('X')).to eq ("Invalid input, please enter a number 1-9")
+    it 'returns false when input is not a number between 1-9' do
+        expect(new_game.input_validator('X')).to eq false
     end
     new_game.grid_updater(5)
-    it 'displays "square already occupied" message when square is occupied' do
-        expect(new_game.input_with_validity_checker(5)).to eq "This square is taken, please choose another"
+    it 'returns false when square is occupied' do
+        expect(new_game.input_validator(5)).to eq false
     end
-
+    it 'returns true when input is valid' do
+        expect(new_game.input_validator(4)).to eq true
+    end
 end
