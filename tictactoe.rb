@@ -1,14 +1,15 @@
 class TicTacToe
 
-    attr_reader :grid, :player_turn
+    attr_accessor :grid, :player_turn, :player_symbols
 
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
         @player_turn = :player1
+        @player_symbols = {player1: :X, player2: :O  }
         # {:player1 => [[1,2,3],]}
     end
 
-    def new_move
+    def player_swap
         if @player_turn == :player1
             @player_turn = :player2
         else
@@ -21,7 +22,7 @@ class TicTacToe
         @grid.each do | row |
             row.replace(
             row.map do | square |
-                square == move ? :X : square
+                square == move ? @player_symbols[@player_turn] : square
             end
             )
         end
@@ -61,8 +62,3 @@ class TicTacToe
 
 end
 
-new_game = TicTacToe.new
-# print "#{new_game.player_turn} please make your move: "
-move = new_game.input_checker
-new_game.grid_updater(move)
-new_game.print_current_grid

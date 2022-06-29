@@ -23,11 +23,11 @@ describe 'player_turn' do
         expect(new_game.player_turn).to eq :player1
     end
     it 'toggles to player2 after one move' do
-        new_game.new_move()
+        new_game.player_swap()
         expect(new_game.player_turn).to eq :player2
     end
     it 'toggles back to player1 after two moves' do
-        new_game.new_move()
+        new_game.player_swap()
         expect(new_game.player_turn).to eq :player1
     end
 end
