@@ -36,8 +36,7 @@ end
 
 describe 'grid with moves played' do
     new_game = TicTacToe.new
-    new_game.grid_updater(5)
-    new_game.player_swap
+    new_game.new_move(5)
     it 'returns grid with :X in central square when player1 inputs 5' do
     expect(new_game.grid).to eq [
         [1,2,3],
@@ -46,8 +45,7 @@ describe 'grid with moves played' do
     ]
     end
     it 'updates latest grid with player2"s move in correct position after 2 moves' do
-        new_game.grid_updater(1)
-        new_game.player_swap
+        new_game.new_move(1)
         expect(new_game.grid).to eq [
             [:O,2,3],
             [4,:X,6],
@@ -55,8 +53,7 @@ describe 'grid with moves played' do
         ]
     end
     it 'updates latest grid with player1"s move in correct position after 3 moves' do
-        new_game.grid_updater(6)
-        new_game.player_swap
+        new_game.new_move(6)
         expect(new_game.grid).to eq [
             [:O,2,3],
             [4,:X,:X],
@@ -64,3 +61,4 @@ describe 'grid with moves played' do
         ]
     end
 end
+

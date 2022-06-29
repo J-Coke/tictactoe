@@ -1,11 +1,12 @@
 class TicTacToe
 
-    attr_accessor :grid, :player_turn, :player_symbols
+    attr_accessor :grid, :player_turn, :player_symbols, :moves_played
 
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
         @player_turn = :player1
         @player_symbols = {player1: :X, player2: :O  }
+        @moves_played = {player1: [], player2: []}
         # {:player1 => [[1,2,3],]}
     end
 
@@ -26,6 +27,12 @@ class TicTacToe
             end
             )
         end
+    end
+
+    def new_move(move)
+        grid_updater(move)
+        # (@moves_played[@player_turn]).push(move)
+        player_swap()
     end
 
     def input_checker
