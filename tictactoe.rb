@@ -27,14 +27,22 @@ class TicTacToe
         end
     end
 
-    def input_with_validity_checker(move)
-        if move.to_s.match?(/[^1-9]/)
-            "Invalid input, please enter a number 1-9"
-        elsif !grid.include?(move)
-            "This square is taken, please choose another"
-        else
-            grid_updater(move)
+    def input_checker
+        message = ""
+        input_valid = false
+        while !input_valid
+            puts "Please make your move: "
+            move = gets.chomp
+            if move.to_s.match?(/[^1-9]/)
+                message = "Invalid input, you must choose a number between 1-9"
+            elsif grid.flatten.include?(move.to_i)
+                input_valid = true    
+            else
+                message = "This square is taken, you must choose another!"
+            end
+            puts message
         end
+        move.to_i
     end
 
     def print_current_grid
@@ -48,5 +56,11 @@ class TicTacToe
 end
 
 new_game = TicTacToe.new
-new_game.grid_updater(5)
+# new_game.input_with_validity_checker("X")
+new_game.print_current_grid
+
+print "#{new_game.player_turn} please make your move: "
+move = new_game.input_checker
+# move = 5
+new_game.grid_updater(move)
 new_game.print_current_grid
