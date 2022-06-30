@@ -19,11 +19,11 @@ describe 'players input different symbols' do
     
     new_game = TicTacToe.new
     it 'players have correct symbols' do
-        expect(new_game.player_symbols[:player1]).to eq :X
-        expect(new_game.player_symbols[:player2]).to eq :O
+        expect(new_game.player_symbols[0]).to eq :X
+        expect(new_game.player_symbols[1]).to eq :O
     end
     
-    new_game.player_turn = :player2
+    new_game.player_turn = 1
     new_game.grid_updater(5)
     it 'player2 inputs O' do
         expect(new_game.grid).to eq [

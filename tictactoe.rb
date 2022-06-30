@@ -4,18 +4,13 @@ class TicTacToe
 
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
-        @player_turn = :player1
-        @player_symbols = {player1: :X, player2: :O  }
-        @moves_played = {player1: [], player2: []}
-        # {:player1 => [[1,2,3],]}
+        @player_turn = 0
+        @player_symbols = [:X, :O]
+        @moves_played = [[],[]]
     end
 
     def player_swap
-        if @player_turn == :player1
-            @player_turn = :player2
-        else
-            @player_turn = :player1
-        end
+        @player_turn = (@player_turn + 1 ) % 2
     end
 
     def grid_updater(move)
@@ -31,7 +26,7 @@ class TicTacToe
 
     def new_move(move)
         grid_updater(move)
-        # (@moves_played[@player_turn]).push(move)
+        @moves_played[@player_turn] << move
         player_swap()
     end
 
@@ -69,3 +64,11 @@ class TicTacToe
 
 end
 
+game = TicTacToe.new
+game.new_move(5)
+# game.player_swap
+# puts game.player_turn
+# game.player_swap
+# puts game.player_turn
+# game.player_swap
+# puts game.player_turn

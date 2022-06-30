@@ -20,14 +20,14 @@ end
 describe 'player_turn' do
     new_game = TicTacToe.new
     it "begins with player 1's turn" do
-        expect(new_game.player_turn).to eq :player1
+        expect(new_game.player_turn).to eq 0
     end
     it 'toggles to player2 after one move' do
         new_game.player_swap()
-        expect(new_game.player_turn).to eq :player2
+        expect(new_game.player_turn).to eq 1
     end
     it 'toggles back to player1 after two moves' do
         new_game.player_swap()
-        expect(new_game.player_turn).to eq :player1
+        expect(new_game.player_turn).to eq 0
     end
 end
