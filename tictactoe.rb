@@ -7,6 +7,10 @@ class TicTacToe
         @player_turn = 0
         @player_symbols = [:X, :O]
         @moves_played = [[],[]]
+        @players_winning_lines = [
+            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
+            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+        ]
     end
 
     def player_swap
