@@ -79,9 +79,17 @@ class TicTacToe
       end
     end
 
-
+    def run_game
+        game_status = nil
+        while game_status == nil do
+            print_current_grid
+            move = input_checker
+            new_move(move)
+            game_status = winning_lines_check
+        end
+        print_current_grid
+        print game_status    
+    end
 
 end
-
-
 
