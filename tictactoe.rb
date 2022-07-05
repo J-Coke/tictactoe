@@ -66,17 +66,20 @@ class TicTacToe
     end
 
     def winning_lines_check
-        winning_player = nil
         wins_player1 = @winning_lines.select {|line| (line & @moves_played[0]).size == 3}
         wins_player2 = @winning_lines.select {|line| (line & @moves_played[1]).size == 3}
         if wins_player1.length > 0
-            winning_player = 0
+            game_status = "Player 1 wins!"
         elsif wins_player2.length > 0
-            winning_player = 1
-      else
-          winning_player = -1
+            game_status = "Player 2 wins!"
+        elsif moves_played.flatten.length == 9
+            game_status = "It's a draw!"
+        else
+          game_status = nil
       end
     end
+
+
 
 end
 
