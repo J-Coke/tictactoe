@@ -51,5 +51,3 @@ class TicTacToe1Player < TicTacToe
     end
 
 end
-
- 
