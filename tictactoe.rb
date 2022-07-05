@@ -1,6 +1,6 @@
 class TicTacToe 
 
-    attr_accessor :grid, :player_turn, :player_symbols, :moves_played, :winning_lines
+    attr_accessor :grid, :player_turn, :player_symbols, :moves_played, :winning_lines,:players_winning_lines
 
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
@@ -9,6 +9,10 @@ class TicTacToe
         @moves_played = [[],[]]
         @winning_lines = [
             [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
+        ]
+        @players_winning_lines = [
+            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
+            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
         ]
     end
 
