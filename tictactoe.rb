@@ -1,15 +1,14 @@
 class TicTacToe
 
-    attr_accessor :grid, :player_turn, :player_symbols, :moves_played
+    attr_accessor :grid, :player_turn, :player_symbols, :moves_played, :winning_lines
 
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
         @player_turn = 0
         @player_symbols = [:X, :O]
         @moves_played = [[],[]]
-        @players_winning_lines = [
-            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
-            [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+        @winning_lines = [
+            [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
         ]
     end
 
@@ -66,13 +65,20 @@ class TicTacToe
         print "#{grid[2][0]}|#{grid[2][1]}|#{grid[2][2]}\n"
     end
 
+    def winning_lines_check
+        winning_player = nil
+        wins_player1 = @winning_lines.select {|line| (line & @moves_played[0]).size == 3}
+        wins_player2 = @winning_lines.select {|line| (line & @moves_played[1]).size == 3}
+        if wins_player1.length > 0
+            winning_player = 0
+        elsif wins_player2.length > 0
+            winning_player = 1
+      else
+          winning_player = -1
+      end
+    end
+
 end
 
-game = TicTacToe.new
-game.new_move(5)
-# game.player_swap
-# puts game.player_turn
-# game.player_swap
-# puts game.player_turn
-# game.player_swap
-# puts game.player_turn
+
+

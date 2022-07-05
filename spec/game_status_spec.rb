@@ -18,3 +18,21 @@ describe 'moves_played' do
         expect(new_game.moves_played[1]).to eq [1]
     end
 end
+
+describe 'winning_lines_check' do
+    it 'can recognise a winning line for player1' do
+        new_game = TicTacToe.new
+        new_game.moves_played = [[1,2,3,5],[4,9,8]]
+        expect(new_game.winning_lines_check).to eq 0
+    end
+    it 'can recognise a winning line for player2' do
+        new_game = TicTacToe.new
+        new_game.moves_played = [[1,2,5,6],[7,9,8]]
+        expect(new_game.winning_lines_check).to eq 1
+    end
+    it 'can recognise when no player has won' do
+        new_game = TicTacToe.new
+        new_game.moves_played = [[1,3,5],[9,8,6]]
+        expect(new_game.winning_lines_check).to eq -1
+    end
+end
