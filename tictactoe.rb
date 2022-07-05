@@ -1,4 +1,4 @@
-class TicTacToe
+class TicTacToe 
 
     attr_accessor :grid, :player_turn, :player_symbols, :moves_played, :winning_lines
 
