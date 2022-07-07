@@ -6,7 +6,6 @@ class TicTacToe1Player < TicTacToe
     end
 
     def random_computer_move
-        # possible_moves = [1,2,3,4,5,6,7,8,9] - @moves_played.flatten
         possible_moves.sample
     end
 
@@ -19,7 +18,6 @@ class TicTacToe1Player < TicTacToe
     end
 
     def choose_winning_space
-        # possible_moves = [1,2,3,4,5,6,7,8,9] - @moves_played.flatten
         nearly_complete_lines = @players_winning_lines[1].select {|line| (line & @moves_played[1]).size == 2}
         if nearly_complete_lines.length == 1 
             (nearly_complete_lines[0] & possible_moves)[0]
@@ -27,7 +25,6 @@ class TicTacToe1Player < TicTacToe
     end
 
     def block_winning_space
-        # possible_moves = [1,2,3,4,5,6,7,8,9] - @moves_played.flatten
         nearly_complete_lines = @players_winning_lines[0].select {|line| (line & @moves_played[0]).size == 2}
         if nearly_complete_lines.length >= 1 
             (nearly_complete_lines[0] & possible_moves)[0]
