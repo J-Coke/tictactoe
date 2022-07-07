@@ -1,3 +1,8 @@
+class Symbol
+    def red;            "\e[31m#{self}\e[0m" end
+    def blue;           "\e[34m#{self}\e[0m" end
+end
+
 class TicTacToe 
 
     attr_accessor :grid, :player_turn, :player_symbols, :moves_played, :winning_lines,:players_winning_lines
@@ -5,7 +10,7 @@ class TicTacToe
     def initialize() 
         @grid = [[1,2,3],[4,5,6],[7,8,9]]
         @player_turn = 0
-        @player_symbols = [:X, :O]
+        @player_symbols = [:X.blue, :O.red]
         @moves_played = [[],[]]
         @winning_lines = [
             [1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]
